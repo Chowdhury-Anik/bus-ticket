@@ -67,7 +67,7 @@
                         <input id="ticketCount" class="inp-style inp-width " type="number " name=" " value="0 ">
                     </div>
                     <div class="plus-minus-btn ">
-                        <p><span id="firstIncrase">+</span> <span id="firstDiscrese">-</span></p>
+                        <p><span onclick=" ticketManager(true)">+</span> <span onclick="ticketManager(false)">-</span></p>
                     </div>
                 </div>
                 <div class="input-group f-class ">
@@ -113,24 +113,22 @@
         </div>
     </main>
     <script>
-        document.getElementById('firstIncrase').addEventListener('click', function() {
+        // first class ticket calculation
+        function ticketManager(isIncrease) {
             const ticketInput = document.getElementById('ticketCount');
             const ticketCount = parseInt(ticketInput.value);
-            const newTicketCount = ticketCount + 1;
+            // const newTicketCount = ticketCount - 1;
+            let newTicketCount = ticketCount;
+            if (isIncrease == true) {
+                newTicketCount = ticketCount + 1;
+            }
+            if (isIncrease == false && ticketCount > 0) {
+                newTicketCount = ticketCount - 1;
+            }
             ticketInput.value = newTicketCount;
             const totalTicketPrice = newTicketCount * 150;
             document.getElementById('subtotal').innerText = totalTicketPrice;
-
-        });
-        document.getElementById('firstDiscrese').addEventListener('click', function() {
-            const ticketInput = document.getElementById('ticketCount');
-            const ticketCount = parseInt(ticketInput.value);
-            const newTicketCount = ticketCount - 1;
-            ticketInput.value = newTicketCount;
-            const totalTicketPrice = newTicketCount * 150;
-            document.getElementById('subtotal').innerText = totalTicketPrice;
-
-        });
+        }
     </script>
 </body>
 

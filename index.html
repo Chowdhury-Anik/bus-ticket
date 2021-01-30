@@ -8,6 +8,9 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -113,7 +116,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style ">Book Now</button>
+            <button id="newWindow" class=" btn-style ">Book Now</button>
         </div>
     </main>
     <script>
@@ -166,7 +169,15 @@
             const totalPayAmount = subTotalCount + vatAmount;
             document.getElementById('totalPayAmount').innerText = totalPayAmount;
         }
+
+        document.getElementById('newWindow').addEventListener('click', function() {
+                    var myWindow = window.open("", "", "width=400,height=400"
+                        myWindow.write('html to write...');
+                    });
     </script>
+
+
+
 </body>
 
 </html>

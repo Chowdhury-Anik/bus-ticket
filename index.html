@@ -99,7 +99,8 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right ">
-                        <p>$50</p>
+                        <p>$
+                            <span id="vatAmount">0</span></p>
                     </div>
                 </div>
                 <hr>
@@ -108,7 +109,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right ">
-                        <p>$550</p>
+                        <p>$<span id="totalPayAmount">00</span></p>
                     </div>
                 </div>
             </div>
@@ -131,6 +132,7 @@
             const totalEconomyPrice = newTicketCount * 100;
 
             document.getElementById('subtotal').innerText = totalEconomyPrice;
+            subTotal();
         }
         // first class ticket calculation
         function firstTicketManager(isIncrease) {
@@ -146,6 +148,23 @@
             ticketInput.value = newTicketCount;
             const totalTicketPrice = newTicketCount * 150;
             document.getElementById('subtotal').innerText = totalTicketPrice;
+            subTotal();
+        }
+
+        function subTotal() {
+            const ticketInput = document.getElementById('ticketCount');
+            const ticketCount = parseInt(ticketInput.value);
+
+            const economyInput = document.getElementById('economyCount');
+            const economyCount = parseInt(economyInput.value);
+
+            const subTotalCount = ticketCount * 150 + economyCount * 100;
+            document.getElementById('subtotal').innerText = subTotalCount;
+
+            const vatAmount = subTotalCount * 0.1;
+            document.getElementById('vatAmount').innerText = vatAmount;
+            const totalPayAmount = subTotalCount + vatAmount;
+            document.getElementById('totalPayAmount').innerText = totalPayAmount;
         }
     </script>
 </body>
